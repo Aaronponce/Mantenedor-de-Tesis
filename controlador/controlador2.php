@@ -2,11 +2,11 @@
 
 include('../modelo/clsPersona.php');
 //include('../modelos/validador.php');
-include '../modelo/conexion.php'; 
+
 include('control-validar.php');
 include ('../Config/config.php');
-include('../modelo/crearselect.php');
-function comparar($post1,$post2){
+//$ruta="../archivos/";
+/*function comparar($post1,$post2){
 	
 	if ($post1==null) {
 		$real=$post2;
@@ -14,41 +14,58 @@ function comparar($post1,$post2){
 		$real=$post1;
 	}
 	return $real;
-}
-/*
+}*/
+include '../modelo/conexion.php';
 
 $Max_ID=0;
 $id = 0;
-mysql_select_db('sistemaweb');
-$rs= mysql_query("SELECT MAX(ID) AS ID FROM trab_tit");
-	if(!$rs){ 
-		die('No se pudo consultar: ' . mysql_error());
-	}
-	$row=mysql_fetch_row($rs);
-	$id1= $row[0];
-	$Max_ID=(int)$id1+1;
-	mysql_close($con);
-*/		
 
-$id=$Max_ID;
+
+		//echo "problemas2";
+		mysql_select_db('test');
+		$rs= mysql_query("SELECT MAX(ID) AS ID FROM trab_tit");
+		if(!$rs){ die('No se pudo consultar: ' . mysql_error());}
+		//$r= mysqli_fetch_array($rs, MYSQLI_ASSOC)
+		//$r= mysqli_fetch_row($rs);
+
+		//$id1= mysql_result($rs, 0);
+		$row=mysql_fetch_row($rs);
+		$id1= $row[0];
+		//echo "aqui se queda pegao";
+		$Max_ID=(int)$id1+1;
+		
+		//echo "no sale de aqui";
+		mysql_close($con);
+		//$id1=  (integer)$r["ID"];
+		//$Max_ID=(int)$id1+1;
+
+echo $id=$Max_ID;
+//$id=$_POST['id'];
+//$ultima_id = mysql_insert_id();
+//echo $ultima_id;
+//$id = $ultima_id +1 ;
+
 $publicada=$_POST['publicada'];
+//$fecha = date('Y/m/d',strtotime($_POST['fecha']));
 $fecha = $_POST['fecha'];
 $nombre=$_POST['nombre'];
 $email=$_POST['email'];
+//$carrera=$_POST['carrera'];
+//$men_principal=$_POST['men_principal'];
+
+$carrera = $_POST['carrera'];
+$men_principal=$_POST['men_principal'];
+$prf_guia=$_POST['prf_guia'];
+$prf_cor1=$_POST['prf_cor1'];
+$prf_cor2=$_POST['prf_cor2'];
+
 $titulo=$_POST['titulo'];
+/*$prf_guia=$_POST['prf_guia'];
+$prf_cor1=$_POST['prf_cor1'];
+$prf_cor2=$_POST['prf_cor2'];*/
 $resumen=$_POST['resumen'];
 
-/*Conversion a claves desde la configuracion*/
-//echo $palabra=$_POST['prf_guia'];
-//echo $palabraeditada;
-$carrera = array_search($_POST['carrera'], $carreras);
-$men_principal=array_search($_POST['men_principal'], $menciones);
-$prf_guia=array_search($palabra, $profesores);
-echo $prf_guia;
-echo $prf_cor1=array_search($_POST['prf_cor1'], $profesores);
-echo $prf_cor2=array_search($_POST['prf_cor2'], $profesores);
 
-/*Datos del Archivo*/
 
 $archivo=$_FILES['archivo']['tmp_name'];
 $FILE_NAME=$_FILES["archivo"]["name"];
@@ -60,9 +77,8 @@ $FILE_DATA=fread($file, filesize($archivo));
 $FILE_DATA=addslashes($FILE_DATA);
 fclose($file);
 
-/*Validacion y Creacion de Persona*/
 
-//if(validar($fecha,$nombre,$carrera,$men_principal,$titulo,$prf_guia,$prf_cor1,$prf_cor2,$resumen,$FILE_NAME)){
+if(validar($fecha,$nombre,$carrera,$men_principal,$titulo,$prf_guia,$prf_cor1,$prf_cor2,$resumen,$FILE_NAME)){
 	$ObjPersona=new clsPersona ($id,$publicada,$fecha, $nombre, $email, $carrera, $men_principal, $prf_guia, $prf_cor1, $prf_cor2, $titulo, $resumen, $FILE_NAME, $FILE_DATA, $FILE_TYPE);
 	 $id=$ObjPersona->get_id();	
 	 $publicada=$ObjPersona->get_publicada();			  
@@ -82,13 +98,15 @@ fclose($file);
 	$FILE_TYPE=$ObjPersona->get_FILE_TYPE();
 	
 	if ($ObjPersona->buscar()==true) {
-		//echo  "<script>alert(\"El Registro ya existe.\");window.location='../vista/ver.php?pagina=1';</script>";
+		//"<script>alert('El Registro ya existe')</script>";
+		echo  "<script>alert(\"El Registro ya existe.\");window.location='../vista/ver.php?pagina=1';</script>";
 	}else{
-		$ObjPersona->incluir();
+		echo $ObjPersona->incluir();
+
 		echo"<script>alert('El Registro ha sido registrado con exito')</script>";
-		//echo  "<script>alert(\"Actualizado exitosamente.\");window.location='../vista/ver.php?pagina=1';</script>";
+	echo  "<script>alert(\"Actualizado exitosamente.\");window.location='../vista/ver.php?pagina=1';</script>";
 		}
 
-//}
+}
 
 ?>

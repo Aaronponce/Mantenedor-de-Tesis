@@ -29,13 +29,13 @@ $profesores=array(
 		"gam" => "Gabriel Astudillo Muñoz",
 		"mbm" => "Marta Barria Martinez",
 		"ccv" => "Cristian Carrion Valencia",
-		"rms" => "Roberto Mu&ntildeoz Soto",
+		"rms" => "Roberto Muñoz Soto",
 		"rnl" => "Rene Noel Lopez",
 		"cbc" => "Carlos Becerra Castro",
 		"roo" => "Rodrigo Olivares Ordenes",
 		"epg" => "Eliana Providel Godoy",
 		"ctt" => "Carla Taramasco Toro"
-
+		
 		);
 
 ?>

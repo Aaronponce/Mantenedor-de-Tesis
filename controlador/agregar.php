@@ -1,16 +1,16 @@
 <?php
 
 if(!empty($_POST)){
-	if(isset($_POST["NOMBRE"]) ){
-		if($_POST["NOMBRE"]!=""&& $_POST["EMAIL"]!=""&&$_POST["CARRERA"]!=""&&$_POST["MEN_PRINCIPAL"]!=""&&$_POST["TITULO"]!=""&&$_POST["PRF_GUIA"]!=""){
+	if(isset($_POST["nombre"]) ){
+		if($_POST["nombre"]!=""&& $_POST["password"]!=""){
 			include "../modelo/conexion.php";
 			
-			$sql = "INSERT INTO trab_tit(PUBLICADA,NOMBRE,CARRERA,MEN_PRINCIPAL,EMAIL,TITULO,PRF_GUIA) value (\"$_POST[PUBLICADA]\",\"$_POST[NOMBRE]\",\"$_POST[CARRERA]\",\"$_POST[MEN_PRINCIPAL]\",\"$_POST[EMAIL]\",\"$_POST[TITULO]\",\"$_POST[PRF_GUIA]\")";
+			$sql = "INSERT INTO login(RUT,Nombre,Password,Email) value (\"$_POST[RUT]\",\"$_POST[nombre]\",\"$_POST[password]\",\"$_POST[email]\")";
 			$query = $con->query($sql);
 			if($query!=null){
-				print "<script>alert(\"Agregado exitosamente.\");window.location='../vista/ver.php';</script>";
+				print "<script>alert(\"Agregado exitosamente.\");window.location='../vista/index.php';</script>";
 			}else{
-				print "<script>alert(\"No se pudo agregar.\");window.location='../vista/ver.php';</script>";
+				print "<script>alert(\"No se pudo agregar.\");window.location='../vista/login.php';</script>";
 
 			}
 		}
