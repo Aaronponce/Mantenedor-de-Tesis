@@ -3,11 +3,8 @@
 		
 		<title>Mantenedor</title>
 		<?php header('Content-Type: text/html; charset=Windows-1252'); ?>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
 		<script src="./js/jquery.min.js"></script>
-		 <link  href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
 	</head>
 	<body>
 	<?php include "./navbar.php"; ?>

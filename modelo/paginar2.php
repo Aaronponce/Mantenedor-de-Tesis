@@ -56,10 +56,11 @@ if (!$pagina) {
 		<td width="15%"><?php echo $r["NOMBRE"]; echo"\n"; echo $r["EMAIL"]; ?></td>
 		
 		<td width="10%"><?php include "lista_carrera2.php"; ?></td>
-		<td width="50%"><?php echo $r["TITULO"]; ?></td>
-		<td width="20%">
+		<td width="45%"><?php echo $r["TITULO"]; ?></td>
+		<td width="23%">
 			<a href="./editar.php?id=<?php echo $r["ID"];?>&pagina=<?php echo $pagina; ?>" class="btn btn-sm btn-primary">Editar</a>
-			<a href="./detalle.php?id=<?php echo $r["ID"];?>" class="btn btn-sm btn-info">Detalles</a>
+			<!--<a href="./detalle.php?id=<?php echo $r["ID"];?>" class="btn btn-sm btn-info">Detalles</a>-->
+			<a href="./detalle.php?id=<?php echo $r["ID"];?>" onclick="javascript:void window.open('./detalle.php?id=<?php echo $r["ID"];?>','1473719437846','width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;" class="btn btn-info">Detalle</a>
 		 	<!-- <a href="#" id="del-<?php echo $r["ID"];?>" class="btn btn-sm btn-danger">Eliminar</a>
 			<script>
 				$("#del-"+<?php echo $r["ID"];?>).click(function(e){

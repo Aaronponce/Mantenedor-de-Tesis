@@ -14,7 +14,7 @@ while ($r=$query->fetch_object()){
 }
 
   }
-  include "config.php";
+  include "../modelo/config.php";
   include "../vista/config2.php";
 ?>
 
@@ -22,8 +22,7 @@ while ($r=$query->fetch_object()){
 
 
 	 <div class="form-group">
-<a href="../vista/index.php" class="btn btn btn-primary">Inicio</a>
-	 	  <a href="javascript:window.history.back();" class="btn btn btn-primary">Tabla</a>
+
 <table class="table table-bordered table-hover table-condensed  " >
 
 	<tr>
