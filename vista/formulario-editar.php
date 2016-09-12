@@ -14,7 +14,7 @@ while ($r=$query->fetch_object()){
   }
   
   include "config2.php";
-  $pagina = $_GET["pagina"];
+ $pagina = $_GET["pagina"];
 ?>
 
 
@@ -31,7 +31,10 @@ while ($r=$query->fetch_object()){
 	<link  href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 	<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-	
+	<?php 
+	include ('../modelo/crear_select_edit.php'); 
+	include ('../Config/config.php');
+	?>
 </head>
 
 <style type="text/css">
@@ -112,22 +115,15 @@ while ($r=$query->fetch_object()){
 			<div class="form-group">
 					<label class=" col-md-2" for="CARRERA">Carrera:</label>		
 				<div class="col-md-3">
-  					<select class="form-control" id="sel1" name="carrera" required>
-  						<?php  carrera(); ?>
-
-  					</select>
+  					<?php  crear_select_edit($carreras,$_GET["id"], 'carrera'); ?>
 				</div>
 			</div>
   				<div class="form-group">
 						<label class=" col-md-2" for="MENCION">MENCION:</label>		
 					<div class="col-md-3">
-  						<select class="form-control" id="sel1" name="men_principal"   required>
-  						<?php mencion(); ?>
-  						</select>
+  						<?php  crear_select_edit($menciones, $_GET["id"],'men_principal'); ?>
 					</div>
 				</div>
-
-
 			<div>
 				<h4>Datos del trabajo</h1>	
 			</div>
@@ -140,9 +136,7 @@ while ($r=$query->fetch_object()){
 			<div class="form-group">
 						<label class=" col-md-2" for="Profesor Guia">Profesor Guia:</label>		
 					<div class="col-md-2">
-  						<select class="form-control" id="sel1" name="prf_guia" >
-  						<?php profe_guia(); ?>
-  						</select>
+  						<?php  crear_select_edit($profesores, $_GET["id"],'prf_guia'); ?>
 					</div>
 					<label class="col-md-1" for="Otro Profesor">Otro Profesor:</label>
 				<div class="col-md-5">
@@ -153,9 +147,7 @@ while ($r=$query->fetch_object()){
 			<div class="form-group">
 						<label class=" col-md-2" for="PRF_COR1">Profesor Correferente I:</label>		
 					<div class="col-md-2" >
-  						<select class="form-control" name="prf_cor1" >
-    						<?php profe_cor1();?>
-  						</select>
+  						<?php  crear_select_edit($profesores, $_GET["id"],'prf_cor1'); ?>
 					</div>
 					<label class="col-md-1" for="Otro Profesor">Otro Profesor:</label>
 				<div class="col-md-5">
@@ -165,9 +157,7 @@ while ($r=$query->fetch_object()){
 			<div class="form-group">
 						<label class=" col-md-2" for="PRF_COR2">Profesor Correferente II:</label>		
 					<div class="col-md-2">
-  						<select class="form-control" name="prf_cor2" >
-  							<?php profe_cor2();?>
-  						</select>
+  						<?php  crear_select_edit($profesores, $_GET["id"],'prf_cor2'); ?>
 					</div>
 					<label class="col-md-1" for="Otro Profesor">Otro Profesor:</label>
 				<div class="col-md-5">
