@@ -7,6 +7,8 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
+      <span class="sr-only"></span>
+      <span class="sr-only"></span>
     </button>
     <a class="navbar-brand" href="./"><b>Inicio</b></a>
   </div>
@@ -19,6 +21,9 @@
     <ul class="nav navbar-nav">
       <li><a href="./profes.php">Listado Profesores</a></li>
     </ul>
+    <ul class="nav navbar-nav">
+      <li><a href="./logout.php">LogOut</a></li>
+    </ul>
     <ul>
       <p>
         <a href="http://informatica.uv.cl">
@@ -26,12 +31,15 @@
         </a>
       </p>
     </ul>
+    
+    <ul>
 <form class="navbar-form navbar-left" role="search" action="./buscar.php">
       <div class="form-group" >
         <input type="text" name="s" class="form-control" placeholder="Buscar por nombre/email">
       </div>
       <button type="submit" class="btn btn-default">&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button>
     </form>
+
     
   </div><!-- /.navbar-collapse -->
   
@@ -39,3 +47,4 @@
 
 </div>
 </nav>
+

@@ -16,8 +16,8 @@ class clsDatos // crea consulta a la base de datos
 	public function __construct(){ 
 		$servidor="localhost";
 		$usuario="root";
-		$clave="a1123581321n";
-		$base="sistemaweb";
+		$clave="";
+		$base="test";
 
 		$this->conexion=mysql_connect($servidor, $usuario, $clave);
 		 if ($this->conexion) {

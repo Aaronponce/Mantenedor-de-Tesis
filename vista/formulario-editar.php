@@ -2,19 +2,7 @@
 include "../modelo/conexion.php";
 
 //$user_id=null;
-$sql1= "SELECT * FROM trab_tit where id = ".$_GET["id"];
-$query = $con->query($sql1);
-$person = null;
-if($query->num_rows>0){
-while ($r=$query->fetch_object()){
-  $person=$r;
-  break;
-}
-
-  }
-  
-  include "config2.php";
-  $pagina = $_GET["pagina"];
+include "../modelo/editorDB.php";
 ?>
 
 
@@ -28,6 +16,9 @@ while ($r=$query->fetch_object()){
 	<link rel="stylesheet"  href="./bootstrap/js/jquery-ui/jquery-ui-1.10.4.custom.min.js">
 	<link rel="stylesheet"  href="./bootstrap/js/jquery-ui/jquery-ui-1.10.4.custom.js">
 	<link rel="stylesheet"  href="./bootstrap/js/jquery-1.10.2.js">
+	<link rel="stylesheet"  href="./js/fonts.css">
+	<link rel="stylesheet"  href="./js/arriba.js">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<link  href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 	<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
@@ -38,7 +29,36 @@ while ($r=$query->fetch_object()){
 	.main{
 		background: #f2f2f2;
 	}
+	.ir-arriba{
+		display: none;
+		padding: 20px;
+		background: #0A3EB7;
+		font-size: 10px;
+		color: #ffffff;
+		cursor: pointer;
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+	}
 </style>
+<script >
+$(document).ready(function(){
+ 
+	$('.ir-arriba').click(function(){
+		$('body, html').animate({
+			scrollTop: '0px'
+		}, 300);
+	});
+ 
+	$(window).scroll(function(){
+		if( $(this).scrollTop() > 0 ){
+			$('.ir-arriba').slideDown(300);
+		} else {
+			$('.ir-arriba').slideUp(300);
+		}
+	});
+ 
+});</script>
 <body>
 	<header>
 		<div class="container">
@@ -199,10 +219,13 @@ while ($r=$query->fetch_object()){
 			<div class="col-md-12">
 <input type="hidden" name="ID" value="<?php echo $person->ID; ?>">
   <button type="submit" class="btn btn-primary">Actualizar</button>
-  <a href="../vista/ver.php?pagina=<?php echo $pagina;?>" class="btn btn btn-primary">Volver</a>
+  
 </div>
+<span class="ir-arriba arrow-up">^</span>
 			</div>
 		</form>	
+		
+
 
 	</div>
 	

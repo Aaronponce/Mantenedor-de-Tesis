@@ -14,7 +14,7 @@ while ($r=$query->fetch_object()){
 }
 
   }
-  include "config.php";
+  include "../modelo/config.php";
   include "../vista/config2.php";
 ?>
 

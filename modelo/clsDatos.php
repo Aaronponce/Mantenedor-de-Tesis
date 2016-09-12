@@ -16,8 +16,8 @@ class clsDatos // crea consulta a la base de datos
 	public function __construct(){ 
 		$servidor="localhost";
 		$usuario="root";
-		$clave="a1123581321n";
-		$base="sistemaweb";
+		$clave="";
+		$base="test";
 
 		$this->conexion=mysql_connect($servidor, $usuario, $clave);
 		 if ($this->conexion) {
@@ -33,7 +33,9 @@ class clsDatos // crea consulta a la base de datos
 
 	public function filtro($sql){ // filtra la informacion de la bd
 		$result=mysql_query($sql);
-		return $result; //extrae datos de una consulta , atraves de un parametro que se le envia, la cual es referenciada al a conexion
+		//echo 'result';
+		//echo $result; //extrae datos de una consulta , atraves de un parametro que se le envia, la cual es referenciada al a conexion
+		return $result; 
 	}
 
 	public function cerrarfiltro($datos){ // libera esopacio de memoria del servidor
@@ -48,7 +50,7 @@ class clsDatos // crea consulta a la base de datos
 	 	$resultado=mysql_query($sql, $this->conexion);
 	 	if(!$resultado){
 	 		die('Consulta no enviada' .mysql_error());
-	 	}
+	 	}echo "entro ejecutar";
 	 }
 	 public function cerrarconexion(){
 	 	mysql_close($this->conexion);

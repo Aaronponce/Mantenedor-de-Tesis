@@ -74,14 +74,31 @@
           <label class=" col-md-2" for="Carrera">Carrera:</label>   
         <div class="col-md-3">
             <?php selected($carreras, 'carrera', "Carrera"); ?>
+           <!-- <select class="form-control" id="sel1" name="carrera"  required>
+              <option selected disabled>Carrera</option>
+              
+              <option value="civinf">Ingenieria Civil en informatica</option>
+            <option value="inf">Ingenieria en Informatica</option>
+            <option value="ejeinf">Ingenieria en Ejecucion en Informatica</option>
+            </selet>-->
         </div>
       </div>
           <div class="form-group">
             <label class=" col-md-2" for="Mencion">Mencion:</label>   
           <div class="col-md-3">
-              <?php selected($menciones, 'men_principal', "Mencion"); ?>
+              <?php selected($menciones, 'men_principal', "Mencion "); ?>
+             <!-- <select class="form-control" id="sel1" name="men_principal"  required>
+              <option selected disabled>Mencion</option>
+              
+              <option value="sw" >Gestion en Proyectos de Software</option>
+              <option value="gestion" >Gestion y Dise&ntilde;ode base de datos</option>
+              <option value="redes" >Redes y Telecomunicaciones</option>
+              <option value="sinmenc">Sin Mencion</option>
+              </select>-->
           </div>
         </div>
+
+
       <div>
         <h4>Datos del trabajo</h1>  
       </div>
@@ -95,6 +112,21 @@
             <label class=" col-md-2" for="Profesor Guia">Profesor Guia:</label>   
           <div class="col-md-2">
               <?php selected($profesores, 'prf_guia', "Profesor Gu&iacute;a"); ?>
+             <!-- <select class="form-control" id="sel1" name="prf_guia" ="">
+              <option  selected disabled>Profesor Guia</option>
+              
+              <option value="mav">Marcos Aravena Vivar</option>
+              <option value="gam">Gabriel Astudillo Mu&ntilde;oz</option>
+              <option value="mbm">Marta Barria Martinez</option>
+              <option value="ccv">Cristian Carrion Valencia</option>
+              <option value="rms">Roberto Mu&ntilde;oz Soto</option>
+              <option value="rnl">Rene Noel Lopez</option>
+              <option value="cbc">Carlos Becerra Castro</option>
+              <option value="roo">Rodrigo Olivares Ordenes</option>
+              <option value="epg">Eliana Providel Godoy</option>
+              <option value="ctt">Carla Taramasco Toro</option>
+              
+              </select>-->
           </div>
           <label class="col-md-1" for="Otro Profesor">Otro Profesor:</label>
         <div class="col-md-5">
@@ -105,8 +137,21 @@
       <div class="form-group">
             <label class=" col-md-2" for="Profesor Correferente I">Profesor Correferente I:</label>   
           <div class="col-md-2" >
-             <?php selected($profesores, 'prf_cor1', "Profesor Correferente I"); ?>
-             </div>
+             <?php selected($profesores, 'prf_guia', "Profesor Correferente I"); ?>
+              <!--<select class="form-control" id="sel1" name="prf_cor1" ="">
+                <option selected disabled>Profesor Correferente I</option>
+               <option value="mav">Marcos Aravena Vivar</option>
+              <option value="gam">Gabriel Astudillo M</option>
+              <option value="mbm">Marta Barria Martinez</option>
+              <option value="ccv">Cristian Carrion Valencia</option>
+              <option value="rms">Roberto Muñoz Soto</option>
+              <option value="rnl">Rene Noel Lopez</option>
+              <option value="cbc">Carlos Becerra Castro</option>
+              <option value="roo">Rodrigo Olivares Ordenes</option>
+              <option value="epg">Eliana Providel Godoy</option>
+              <option value="ctt">Carla Taramasco Toro</option>
+              </seect>-->
+          </div>
           <label class="col-md-1" for="Otro Profesor">Otro Profesor:</label>
         <div class="col-md-5">
           <input class="form-control" id="OtroProfesor" type="text" name="OtroProfesorCor" placeholder="Profesor" value="" ></input>  
@@ -115,8 +160,21 @@
       <div class="form-group">
             <label class=" col-md-2" for="Profesor Correferente II">Profesor Correferente II:</label>   
           <div class="col-md-2">
-             <?php selected($profesores, 'prf_cor2', "Profesor Correferente II"); ?>
-             </div>
+             <?php selected($profesores, 'prf_guia', "Profesor Correferente II"); ?>
+              <!--<select class="form-control" id="sel1" name="prf_cor2" ="">
+                <option selected disabled>Profesor Correferente II</option>
+                <option value="mav">Marcos Aravena Vivar</option>
+              <option value="gam">Gabriel Astudillo M</option>
+              <option value="mbm">Marta Barria Martinez</option>
+              <option value="ccv">Cristian Carrion Valencia</option>
+              <option value="rms">Roberto Muñoz Soto</option>
+              <option value="rnl">Rene Noel Lopez</option>
+              <option value="cbc">Carlos Becerra Castro</option>
+              <option value="roo">Rodrigo Olivares Ordenes</option>
+              <option value="epg">Eliana Providel Godoy</option>
+              <option value="ctt">Carla Taramasco Toro</option>
+              </select>-->
+          </div>
           <label class="col-md-1" for="Otro Profesor">Otro Profesor:</label>
         <div class="col-md-5">
           <input class="form-control" id="OtroProfesor" type="text" name="OtroProfesorCorII" placeholder="Profesor" value="" ></input>  
