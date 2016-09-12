@@ -1,10 +1,12 @@
 <?php
 include ("clsDatos.php");
 include ("../Config/config.php");
+
 function crear_select_edit($arreglo, $id, $atributo){
 		/* Etiquetas de HTML*/
 		$formcontrol="form-control";
 		$requerido="required";
+		
 		/*Comunicacion con la Base de Datos*/
 		$ObjDatos = new clsDatos();
 		$sql="SELECT $atributo FROM trab_tit WHERE(ID='$id')";
@@ -28,5 +30,33 @@ function crear_select_edit($arreglo, $id, $atributo){
 			}
 		}
 		echo "</select>";
+}
+
+function atributos($id, $atributo){
+		$ObjDatos = new clsDatos();
+		$sql="SELECT $atributo FROM trab_tit WHERE(ID='$id')";
+		$consulta=$ObjDatos->filtro($sql);
+		$orden=$ObjDatos->proximo($consulta);
+		$ObjDatos->cerrarconexion();
+		$obtenido=$orden[$atributo];
+		return $obtenido;
+}
+
+function documento($id){
+	header('Content-type: application/pdf');
+		$ObjDatos = new clsDatos();
+		$sql="SELECT nombre FROM trab_tit WHERE(ID='$id')";
+		$consulta=$ObjDatos->filtro($sql);
+		$orden=$ObjDatos->proximo($consulta);
+		$obtenido=$orden['nombre'];
+		if (strnatcasecmp($obtenido,"")) {
+			$sql="SELECT FILE_DATA FROM trab_tit WHERE(ID='$id')";
+			$consulta=$ObjDatos->filtro($sql);
+			$orden=$ObjDatos->proximo($consulta);
+			return $orden['FILE_DATA'];
+			//echo $obtenido;
+		}else{
+			echo "<script>alert('Este registro no contiene documento');</script>";
+		}
 }
 ?>	

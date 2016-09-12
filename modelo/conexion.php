@@ -1,8 +1,8 @@
 <?php
 $host="localhost";
 $user="root";
-$password="a1123581321n";
-$db="sistemaweb";
+$password="";
+$db="test";
 $con = new mysqli($host,$user,$password,$db);
 
 ?>

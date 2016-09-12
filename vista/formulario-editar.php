@@ -1,27 +1,9 @@
-<?php
-include "../modelo/conexion.php";
-//$user_id=null;
-$sql1= "SELECT * FROM trab_tit where id = ".$_GET["id"];
-$query = $con->query($sql1);
-$person = null;
-if($query->num_rows>0){
-while ($r=$query->fetch_object()){
-  $person=$r;
-  break;
-}
-  }
-  
-  include "config2.php";
- $pagina = $_GET["pagina"];
-?>
 
-
-<?php if($person!=null):?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<?php header('Content-Type: text/html; charset=Windows-1252'); ?>
+	<?php  header('Content-Type: text/html; charset=Windows-1252'); ?>
 	
 	<link rel="stylesheet"  href="./bootstrap/js/jquery-ui/jquery-ui-1.10.4.custom.min.js">
 	<link rel="stylesheet"  href="./bootstrap/js/jquery-ui/jquery-ui-1.10.4.custom.js">
@@ -73,7 +55,7 @@ while ($r=$query->fetch_object()){
 			<div class="form-group">
 				<label class="col-md-2" for="ID">ID:</label>
 				<div class="col-md-1">
-					<input class="form-control" type="text" placeholder="" readonly name="id" value="<?php echo $person->ID; ?>"  required></input>
+					<input class="form-control" type="text" placeholder="" readonly name="id" value="<?php echo atributos($_GET['id'],'id'); ?>"  required></input>
 					<!--<input type="text" class="form-control"  name="nombre" value=""  required> 	-->
 				</div>
 			</div>
@@ -83,7 +65,7 @@ while ($r=$query->fetch_object()){
 					<div class="col-md-3" >
     					
 						<div class="form-control">
-    					<input  class="datepicker" name="fecha"  value="<?php $f=$person->FECHA; $f2=date("Y-m-d", strtotime($f)); echo $f2; ?>" data-validation-tipo="requerido" />
+    					<input  class="datepicker" name="fecha"  value="<?php echo atributos($_GET['id'],'fecha'); ?>" data-validation-tipo="requerido" />
    
    						<script type="text/javascript">
 							$(function(){
@@ -97,7 +79,7 @@ while ($r=$query->fetch_object()){
 			<div class="form-group">
 				<label class="col-md-2" for="NOMBRE">Nombre:</label>
 				<div class="col-md-8">
-					<input class="form-control" type="text" placeholder="" name="nombre" value="<?php echo $person->NOMBRE; ?>"  required></input>
+					<input class="form-control" type="text" placeholder="" name="nombre" value="<?php echo atributos($_GET['id'],'nombre'); ?>"  required></input>
 					<!--<input type="text" class="form-control"  name="nombre" value=""  required> 	-->
 				</div>
 			</div>
@@ -106,7 +88,7 @@ while ($r=$query->fetch_object()){
 			<div class="form-group">
 				<label class=" col-md-2" for="EMAIL">Correo:</label>
 				<div class="col-md-3">
-					<input type="email" class="form-control" value="<?php echo $person->EMAIL; ?>" name="email" required>
+					<input type="email" class="form-control" value="<?php echo atributos($_GET['id'],'email'); ?>" name="email" required>
 				</div>
 			</div>
 			
@@ -128,7 +110,7 @@ while ($r=$query->fetch_object()){
 				<div class="form-group ">
 					<label class="col-md-2" for="TITULO">T&iacute;tulo del Trabajo:</label>
 					<div class="col-md-8">
-						<input class="form-control" id="TITULO" type="text" placeholder="Nombre del Trabajo:" name="titulo" value="<?php echo $person->TITULO; ?>" required></input> 	
+						<input class="form-control" id="TITULO" type="text" placeholder="Nombre del Trabajo:" name="titulo" value="<?php echo atributos($_GET['id'],'titulo') ?>" required></input> 	
 					</div>
 				</div>
 			<div class="form-group">
@@ -165,7 +147,7 @@ while ($r=$query->fetch_object()){
 			<div class="form-group">
   				<label class=" col-md-2" for="RESUMEN">Resumen:</label>
   				<div class="col-md-8">
-  					<textarea class="form-control" type="text" rows="5" name="resumen" placeholder="<?php echo $person->RESUMEN; ?>" value="" ></textarea>
+  					<textarea class="form-control" type="text" rows="5" name="resumen" placeholder="<?php echo atributos($_GET['id'],'resumen'); ?>" value="" ></textarea>
   				</div>
 			</div>
 
@@ -176,14 +158,9 @@ while ($r=$query->fetch_object()){
                     <div class="col-md-4">
                         <input name="archivo" type="file"></input>
                     </div>
-                    <div class="col-md-3"><a href="../modelo/mostrarA.php?id=<?php echo $person->ID;?>" target="_blank" class="btn">Ver Documento</a></div>
-
-                  
-                  
-				
+                    <!--<div class="col-md-3"><a href="../modelo/mostrarA.php?id=<?php echo $person->ID;?>" target="_blank" class="btn">Ver Documento</a></div>-->
+                   <div class="col-md-3"><a href="<?php header('Content-type: application/pdf'); documento($_GET['id']); ?>" target="_blank" class="btn">Ver Documento</a></div>
 			</div>
-
-
 			<div class="col-md-12">
 <input type="hidden" name="ID" value="<?php echo $person->ID; ?>">
   <button type="submit" class="btn btn-primary">Actualizar</button>
@@ -196,8 +173,3 @@ while ($r=$query->fetch_object()){
 	
  </body>
 </html>
-<?php else:?>
-  <p class="alert alert-danger">404 No se encuentra</p>
-<?php endif;?>
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Te

@@ -15,11 +15,11 @@ function comparar($post1,$post2){
 	}
 	return $real;
 }
-/*
+
 
 $Max_ID=0;
 $id = 0;
-mysql_select_db('sistemaweb');
+mysql_select_db('test');
 $rs= mysql_query("SELECT MAX(ID) AS ID FROM trab_tit");
 	if(!$rs){ 
 		die('No se pudo consultar: ' . mysql_error());
@@ -28,7 +28,7 @@ $rs= mysql_query("SELECT MAX(ID) AS ID FROM trab_tit");
 	$id1= $row[0];
 	$Max_ID=(int)$id1+1;
 	mysql_close($con);
-*/		
+		
 
 $id=$Max_ID;
 $publicada=$_POST['publicada'];
