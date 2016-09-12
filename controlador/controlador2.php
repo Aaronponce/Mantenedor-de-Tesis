@@ -2,11 +2,11 @@
 
 include('../modelo/clsPersona.php');
 //include('../modelos/validador.php');
-
+include '../modelo/conexion.php'; 
 include('control-validar.php');
 include ('../Config/config.php');
-//$ruta="../archivos/";
-/*function comparar($post1,$post2){
+include('../modelo/crearselect.php');
+function comparar($post1,$post2){
 	
 	if ($post1==null) {
 		$real=$post2;
@@ -14,56 +14,41 @@ include ('../Config/config.php');
 		$real=$post1;
 	}
 	return $real;
-}*/
+}
 include '../modelo/conexion.php';
 
 $Max_ID=0;
 $id = 0;
 
-
-		//echo "problemas2";
 		mysql_select_db('test');
 		$rs= mysql_query("SELECT MAX(ID) AS ID FROM trab_tit");
 		if(!$rs){ die('No se pudo consultar: ' . mysql_error());}
-		//$r= mysqli_fetch_array($rs, MYSQLI_ASSOC)
-		//$r= mysqli_fetch_row($rs);
-
-		//$id1= mysql_result($rs, 0);
 		$row=mysql_fetch_row($rs);
 		$id1= $row[0];
-		//echo "aqui se queda pegao";
 		$Max_ID=(int)$id1+1;
 		
-		//echo "no sale de aqui";
 		mysql_close($con);
-		//$id1=  (integer)$r["ID"];
-		//$Max_ID=(int)$id1+1;
+		
 
 echo $id=$Max_ID;
-//$id=$_POST['id'];
-//$ultima_id = mysql_insert_id();
-//echo $ultima_id;
-//$id = $ultima_id +1 ;
+
 
 $publicada=$_POST['publicada'];
-//$fecha = date('Y/m/d',strtotime($_POST['fecha']));
+
 $fecha = $_POST['fecha'];
 $nombre=$_POST['nombre'];
 $email=$_POST['email'];
-//$carrera=$_POST['carrera'];
-//$men_principal=$_POST['men_principal'];
-
-$carrera = $_POST['carrera'];
-$men_principal=$_POST['men_principal'];
-$prf_guia=$_POST['prf_guia'];
-$prf_cor1=$_POST['prf_cor1'];
-$prf_cor2=$_POST['prf_cor2'];
-
 $titulo=$_POST['titulo'];
-/*$prf_guia=$_POST['prf_guia'];
-$prf_cor1=$_POST['prf_cor1'];
-$prf_cor2=$_POST['prf_cor2'];*/
+
 $resumen=$_POST['resumen'];
+
+$carrera = array_search($_POST['carrera'], $carreras);
+$men_principal=array_search($_POST['men_principal'], $menciones);
+$prf_guia=array_search($palabra, $profesores);
+echo $prf_guia;
+echo $prf_cor1=array_search($_POST['prf_cor1'], $profesores);
+echo $prf_cor2=array_search($_POST['prf_cor2'], $profesores);
+
 
 
 

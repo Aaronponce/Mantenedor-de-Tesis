@@ -16,7 +16,7 @@ $menciones=array(
 		'sw' => "Gestion de Proyectos de Software",
 		'gestion' => "Gestion y Dise&ntildeo de Bases de Datos",
 		'redes' => "Redes y Telecomunicaciones",
-		'sm' => "Sin Mencion" 
+		'sinmenc' => "Sin Mencion" 
 		);
 
 /*
@@ -26,16 +26,16 @@ $menciones=array(
 $profesores=array(
 
 		"mav" => "Marcos Aravena Vivar",
-		"gam" => "Gabriel Astudillo Muñoz",
+		"gam" => "Gabriel Astudillo Mu&ntildeoz",
 		"mbm" => "Marta Barria Martinez",
 		"ccv" => "Cristian Carrion Valencia",
-		"rms" => "Roberto Muñoz Soto",
+		"rms" => "Roberto Mu&ntildeoz Soto",
 		"rnl" => "Rene Noel Lopez",
 		"cbc" => "Carlos Becerra Castro",
 		"roo" => "Rodrigo Olivares Ordenes",
 		"epg" => "Eliana Providel Godoy",
 		"ctt" => "Carla Taramasco Toro"
-		
+
 		);
 
 ?>
