@@ -3,7 +3,7 @@ Aplicación web de almacenamiento y mantencion de tesis, desarrollada en el leng
 para la escuela de Ingenieria Civil en  Informatica de la Universidad de Valparaiso, por sus ayudantes
 Aaron Ponce Sandoval y Gonzalo Simpson
 
-	---Errores de la Metodologia de Trabajo----                                                                                                             
+	---Errores de la Metodologia de Trabajo----
 
 ----Error en compartir avanzes
 ----Error en definir el paradigma de programacion
