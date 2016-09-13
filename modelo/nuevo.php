@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php include "../Config/config.php"; include "crearselect.php"; ?>
+<?php header('Content-Type: text/html; charset=Windows-1252'); ?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
